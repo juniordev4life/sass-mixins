@@ -1,0 +1,9 @@
+{
+  "package": {
+    "title": "Sass Mixins",
+    "name": "sass-mixins",
+    "homepage": "https://github.com/juniordev4life/sass-mixins",
+    "description": "Sass mixins for personal and commercial projects."
+  },
+  "autofill": "false"
+}

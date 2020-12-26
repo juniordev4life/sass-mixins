@@ -1,0 +1,111 @@
+<!doctype html><html lang="en"><head><meta charset="utf-8"><title>Sass Mixins</title><link rel="stylesheet" href="assets/css/main.css"><link href="https://fonts.googleapis.com/css?family=Open+Sans:400,500,700" rel="stylesheet" type="text/css"><meta name="viewport" content="width=device-width"><meta content="IE=edge, chrome=1" http-equiv="X-UA-Compatible"><!-- Open Graph tags --><meta property="og:title" content="Sass Mixins - SassDoc"><meta property="og:type" content="website"><meta property="og:description" content="<p>Sass mixins for personal and commercial projects.</p>
+"><!-- Thanks to Sass-lang.com for the icons --><link href="assets/images/favicon.png" rel="shortcut icon"></head><body><aside class="sidebar" role="nav"><div class="sidebar__header"><h1 class="sidebar__title"><a href="https://github.com/juniordev4life/sass-mixins">Sass Mixins</a></h1></div><div class="sidebar__body"><button type="button" class="btn-toggle js-btn-toggle" data-alt="Open all">Close all</button><p class="sidebar__item sidebar__item--heading" data-slug="undefined"><a href="#undefined">General</a></p><div><p class="sidebar__item sidebar__item--sub-heading" data-slug="undefined-mixin"><a href="#undefined-mixin">mixins</a></p><ul class="list-unstyled"><li class="sidebar__item sassdoc__item" data-group="undefined" data-name="when-inside" data-type="mixin"><a href="#undefined-mixin-when-inside">when-inside</a></li><li class="sidebar__item sassdoc__item" data-group="undefined" data-name="when-inside-direct" data-type="mixin"><a href="#undefined-mixin-when-inside-direct">when-inside-direct</a></li><li class="sidebar__item sassdoc__item" data-group="undefined" data-name="square" data-type="mixin"><a href="#undefined-mixin-square">square</a></li><li class="sidebar__item sassdoc__item" data-group="undefined" data-name="circle" data-type="mixin"><a href="#undefined-mixin-circle">circle</a></li><li class="sidebar__item sassdoc__item" data-group="undefined" data-name="aspect-ratio" data-type="mixin"><a href="#undefined-mixin-aspect-ratio">aspect-ratio</a></li><li class="sidebar__item sassdoc__item" data-group="undefined" data-name="truncate" data-type="mixin"><a href="#undefined-mixin-truncate">truncate</a></li></ul></div></div></aside><article class="main" role="main"><header class="header" role="banner"><div class="container"><div class="sassdoc__searchbar searchbar"><label for="js-search-input" class="visually-hidden">Search</label><div class="searchbar__form" id="js-search"><input name="search" type="search" class="searchbar__field" autocomplete="off" autofocus id="js-search-input" placeholder="Search"><ul class="searchbar__suggestions" id="js-search-suggestions"></ul></div></div></div></header><section class="main__section"><h1 class="main__heading" id="undefined"><div class="container">General</div></h1><section class="main__sub-section" id="undefined-mixin"><h2 class="main__heading--secondary"><div class="container">mixins</div></h2><section class="main__item container item" id="undefined-mixin-when-inside"><h3 class="item__heading"><a class="item__name" href="#mixin-when-inside">when-inside</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@mixin when-inside($context) { 
+  #{$context} &amp; {
+    @content;
+  }
+ }" data-collapsed="@mixin when-inside($context) { ... }"><code>@mixin when-inside($context) { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Make a context based selector a little more friendly</p></div><h3 class="item__sub-heading">Parameters</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">parameter </span>Name</th><th scope="col"><span class="visually-hidden">parameter </span>Description</th><th scope="col"><span class="visually-hidden">parameter </span>Type</th><th scope="col"><span class="visually-hidden">parameter </span>Default value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>$context</code></th><td data-label="desc">&mdash;<span class="visually-hidden"> none</span></td><td data-label="type"><code>String</code></td><td data-label="default">&mdash;<span class="visually-hidden"> none</span></td></tr></tbody></table><h3 class="item__sub-heading">Example</h3><div class="item__example example"><pre class="example__code language-scss"><code>.my-element {
+    display: flex;
+
+    @include when-inside(&#39;.no-flexbox&#39;) {
+         display: table;
+    }
+}
+Output:
+.my-element {
+    display: flex;
+}
+.no-flexbox .my-element {
+    display: table;
+}</code></pre></div></section><section class="main__item container item" id="undefined-mixin-when-inside-direct"><h3 class="item__heading"><a class="item__name" href="#mixin-when-inside-direct">when-inside-direct</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@mixin when-inside-direct($context) { 
+  #{$context} &gt; &amp; {
+    @content;
+  }
+ }" data-collapsed="@mixin when-inside-direct($context) { ... }"><code>@mixin when-inside-direct($context) { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Make a context based selector a little more friendly</p></div><h3 class="item__sub-heading">Parameters</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">parameter </span>Name</th><th scope="col"><span class="visually-hidden">parameter </span>Description</th><th scope="col"><span class="visually-hidden">parameter </span>Type</th><th scope="col"><span class="visually-hidden">parameter </span>Default value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>$context</code></th><td data-label="desc">&mdash;<span class="visually-hidden"> none</span></td><td data-label="type"><code>String</code></td><td data-label="default">&mdash;<span class="visually-hidden"> none</span></td></tr></tbody></table><h3 class="item__sub-heading">Example</h3><div class="item__example example"><pre class="example__code language-scss"><code>.my-element {
+    display: flex;
+
+    @include when-inside(&#39;.no-flexbox&#39;) {
+         display: table;
+    }
+}
+Output:
+.my-element {
+    display: flex;
+}
+.no-flexbox &gt; .my-element {
+    display: table;
+}</code></pre></div></section><section class="main__item container item" id="undefined-mixin-square"><h3 class="item__heading"><a class="item__name" href="#mixin-square">square</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@mixin square($width, $height: default $width) { 
+  width: $width;
+  height: $height;
+ }" data-collapsed="@mixin square($width, $height: default $width) { ... }"><code>@mixin square($width, $height: default $width) { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Create a square container</p></div><h3 class="item__sub-heading">Parameters</h3><table class="item__parameters"><thead><tr><th scope="col"><span class="visually-hidden">parameter </span>Name</th><th scope="col"><span class="visually-hidden">parameter </span>Description</th><th scope="col"><span class="visually-hidden">parameter </span>Type</th><th scope="col"><span class="visually-hidden">parameter </span>Default value</th></tr></thead><tbody><tr class="item__parameter"><th scope="row" data-label="name"><code>$width</code></th><td data-label="desc">&mdash;<span class="visually-hidden"> none</span></td><td data-label="type"><code>String</code></td><td data-label="default">&mdash;<span class="visually-hidden"> none</span></td></tr><tr class="item__parameter"><th scope="row" data-label="name"><code>$height</code></th><td data-label="desc">&mdash;<span class="visually-hidden"> none</span></td><td data-label="type"><code>String</code></td><td data-label="default"><code>default $width</code></td></tr></tbody></table><h3 class="item__sub-heading">Example</h3><div class="item__example example"><pre class="example__code language-scss"><code>.square-container {
+  @include square(60px);
+}
+Output:
+.square-container {
+  width: 60px;
+  height: 60px;
+}</code></pre></div></section><section class="main__item container item" id="undefined-mixin-circle"><h3 class="item__heading"><a class="item__name" href="#mixin-circle">circle</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@mixin circle() { 
+  width: $width;
+  height: $width;
+  border-radius: $width / 2;
+ }" data-collapsed="@mixin circle() { ... }"><code>@mixin circle() { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Mixin to create simple a circle element with only one specification</p></div><h3 class="item__sub-heading">Parameters</h3><p>None.</p><h3 class="item__sub-heading">Example</h3><div class="item__example example"><pre class="example__code language-scss"><code>.c-backtotop {
+    font-size: rem(26);
+
+    @include circle(60px);
+
+}
+Output:
+.c-backtotop__show {
+    font-size: 1.52941rem;
+    width: 60px;
+    height: 60px;
+    border-radius: 30px;
+}</code></pre></div></section><section class="main__item container item" id="undefined-mixin-aspect-ratio"><h3 class="item__heading"><a class="item__name" href="#mixin-aspect-ratio">aspect-ratio</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@mixin aspect-ratio() { 
+  position: relative;
+
+  &amp;::before {
+    display: block;
+    content: &#39; &#39;;
+    width: 100%;
+    padding-top: ($height / $width) * 100%;
+  }
+
+  &gt;.content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+ }" data-collapsed="@mixin aspect-ratio() { ... }"><code>@mixin aspect-ratio() { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Mixin to define an aspect ratio</p></div><h3 class="item__sub-heading">Parameters</h3><p>None.</p><h3 class="item__sub-heading">Example</h3><div class="item__example example"><pre class="example__code language-scss"><code>.c-card__image {
+    @include aspect-ratio(16,9);
+}
+Output:
+.c-card__image {
+    position: relative;
+}
+.c-card__image:before {
+    display: block;
+    content: &quot; &quot;;
+    width: 100%;
+    padding-top: 56.25%; }
+.c-card__image &gt; .content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}</code></pre></div></section><section class="main__item container item" id="undefined-mixin-truncate"><h3 class="item__heading"><a class="item__name" href="#mixin-truncate">truncate</a></h3><div class="item__code-wrapper"><pre class="item__code item__code--togglable language-scss" data-current-state="collapsed" data-expanded="@mixin truncate() { 
+  max-width: $truncation-boundary;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+ }" data-collapsed="@mixin truncate() { ... }"><code>@mixin truncate() { ... }</code></pre></div><h3 class="item__sub-heading">Description</h3><div class="item__description"><p>Mixin to truncate block</p></div><h3 class="item__sub-heading">Parameters</h3><p>None.</p><h3 class="item__sub-heading">Example</h3><div class="item__example example"><pre class="example__code language-scss"><code>.c-accordion__region-text {
+    @include truncate(55%);
+}
+Output:
+.c-accordion__region-text {
+    max-width: 55%;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}</code></pre></div></section></section></section><footer class="footer" role="contentinfo"><div class="container"><div class="footer__project-info project-info"><!-- Name and URL --> <a class="project-info__name" href="https://github.com/juniordev4life/sass-mixins">Sass Mixins</a><!-- Version --><!-- License --></div><a class="footer__watermark" href="http://sassdoc.com"><img src="assets/images/logo_light_inline.svg" alt="SassDoc Logo"></a></div></footer></article><script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script><script>window.jQuery || document.write('<script src="assets/js/vendor/jquery.min.js"><\/script>')</script><script src="assets/js/main.min.js"></script></body></html>

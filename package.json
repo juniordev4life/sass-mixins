@@ -1,0 +1,30 @@
+{
+  "name": "sass-mixins",
+  "version": "1.0.0",
+  "description": "Sass mixins for projects",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest",
+    "sassdoc": "./scripts/sassdoc.sh"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://juniordev4life@github.com/juniordev4life/sass-mixins.git"
+  },
+  "keywords": [
+    "Sass"
+  ],
+  "author": "Marco Slusalek",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/juniordev4life/sass-mixins/issues"
+  },
+  "homepage": "https://github.com/juniordev4life/sass-mixins#readme",
+  "dependencies": {
+    "node-sass": "^5.0.0"
+  },
+  "devDependencies": {
+    "jest": "^26.6.3",
+    "sassdoc": "^2.7.3"
+  }
+}

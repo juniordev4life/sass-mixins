@@ -1,0 +1,143 @@
+/// Make a context based selector a little more friendly
+/// @param {String} $context
+/// @example
+///   .my-element {
+///       display: flex;
+///
+///       @include when-inside('.no-flexbox') {
+///            display: table;
+///       }
+///   }
+///   Output:
+///   .my-element {
+///       display: flex;
+///   }
+///   .no-flexbox .my-element {
+///       display: table;
+///   }
+@mixin when-inside($context) {
+  #{$context} & {
+    @content;
+  }
+}
+
+/// Make a context based selector a little more friendly
+/// @param {String} $context
+/// @example
+///   .my-element {
+///       display: flex;
+///
+///       @include when-inside('.no-flexbox') {
+///            display: table;
+///       }
+///   }
+///   Output:
+///   .my-element {
+///       display: flex;
+///   }
+///   .no-flexbox > .my-element {
+///       display: table;
+///   }
+@mixin when-inside-direct($context) {
+  #{$context} > & {
+    @content;
+  }
+}
+
+/// Create a square container
+/// @param {String} $width
+/// @param {String} $height [default $width]
+/// @example
+///   .square-container {
+///     @include square(60px);
+///   }
+///   Output:
+///   .square-container {
+///     width: 60px;
+///     height: 60px;
+///   }
+@mixin square($width, $height: $width) {
+  width: $width;
+  height: $height;
+}
+
+/// Mixin to create simple a circle element with only one specification
+/// @example
+///   .c-backtotop {
+///       font-size: rem(26);
+///
+///       @include circle(60px);
+///
+///   }
+///   Output:
+///   .c-backtotop__show {
+///       font-size: 1.52941rem;
+///       width: 60px;
+///       height: 60px;
+///       border-radius: 30px;
+///   }
+///
+@mixin circle($width) {
+  width: $width;
+  height: $width;
+  border-radius: $width / 2;
+}
+
+/// Mixin to define an aspect ratio
+/// @example
+///   .c-card__image {
+///       @include aspect-ratio(16,9);
+///   }
+///   Output:
+///   .c-card__image {
+///       position: relative;
+///   }
+///   .c-card__image:before {
+///       display: block;
+///       content: " ";
+///       width: 100%;
+///       padding-top: 56.25%; }
+///   .c-card__image > .content {
+///       position: absolute;
+///       top: 0;
+///       left: 0;
+///       right: 0;
+///       bottom: 0;
+///   }
+@mixin aspect-ratio($width, $height) {
+  position: relative;
+
+  &::before {
+    display: block;
+    content: ' ';
+    width: 100%;
+    padding-top: ($height / $width) * 100%;
+  }
+
+  >.content {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+  }
+}
+
+/// Mixin to truncate block
+/// @example
+///   .c-accordion__region-text {
+///       @include truncate(55%);
+///   }
+///   Output:
+///   .c-accordion__region-text {
+///       max-width: 55%;
+///       white-space: nowrap;
+///       overflow: hidden;
+///       text-overflow: ellipsis;
+///   }
+@mixin truncate($truncation-boundary) {
+  max-width: $truncation-boundary;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+}
